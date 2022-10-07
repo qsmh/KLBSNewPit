@@ -1,0 +1,23 @@
+{
+  "_fv": 33,
+  "_type": "enchantment",
+  "definition": {
+    "name": "Irony",
+    "type": "ARMOR_LEGS",
+    "rarity": "COMMON",
+    "minLevel": 1,
+    "maxLevel": 4,
+    "damageModifier": 1,
+    "compatibleEnchantments": [],
+    "compatibleItems": [
+      {
+        "value": "Items.LEATHER_LEGGINGS"
+      }
+    ],
+    "isTreasureEnchantment": false,
+    "isCurse": false,
+    "isAllowedOnBooks": true,
+    "canGenerateInLootTables": true,
+    "canVillagerTrade": false
+  }
+}

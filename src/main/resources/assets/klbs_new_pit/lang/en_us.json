@@ -1,0 +1,12 @@
+{
+  "enchantment.klbs_new_pit.phoenix_enchantment": "Phoenix",
+  "enchantment.klbs_new_pit.mirror_enchantment": "Mirror",
+  "enchantment.klbs_new_pit.ender_slayer_enchantment": "Ender Slayer",
+  "enchantment.klbs_new_pit.vampire_enchantment": "Vampire",
+  "enchantment.klbs_new_pit.irony_enchantment": "Irony",
+  "enchantment.klbs_new_pit.evil_within_enchantment": "§5Evil Within",
+  "enchantment.klbs_new_pit.peroxide_enchantment": "Peroxide",
+  "item.klbs_new_pit.pit_vile": "§5Chunk Of Vile",
+  "enchantment.klbs_new_pit.gamble_enchantment": "Gamble",
+  "death.attack.gambled": "%1$s gambled to there death."
+}

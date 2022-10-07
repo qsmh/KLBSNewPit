@@ -1,0 +1,60 @@
+{
+  "_fv": 33,
+  "_type": "enchantment",
+  "definition": {
+    "name": "Ender Slayer",
+    "type": "WEAPON",
+    "rarity": "UNCOMMON",
+    "minLevel": 1,
+    "maxLevel": 5,
+    "damageModifier": 0,
+    "compatibleEnchantments": [
+      {
+        "value": "KNOCKBACK"
+      },
+      {
+        "value": "FIRE_ASPECT"
+      },
+      {
+        "value": "LOOTING"
+      },
+      {
+        "value": "SWEEPING"
+      },
+      {
+        "value": "UNBREAKING"
+      },
+      {
+        "value": "MENDING"
+      },
+      {
+        "value": "CUSTOM:GambleEnchantment"
+      }
+    ],
+    "compatibleItems": [
+      {
+        "value": "Items.WOODEN_SWORD"
+      },
+      {
+        "value": "Items.STONE_SWORD"
+      },
+      {
+        "value": "Items.IRON_SWORD"
+      },
+      {
+        "value": "Items.GOLDEN_SWORD"
+      },
+      {
+        "value": "Items.DIAMOND_SWORD"
+      },
+      {
+        "value": "Items.NETHERITE_SWORD"
+      }
+    ],
+    "isTreasureEnchantment": false,
+    "isCurse": false,
+    "isAllowedOnBooks": true,
+    "canGenerateInLootTables": true,
+    "canVillagerTrade": false
+  }
+}

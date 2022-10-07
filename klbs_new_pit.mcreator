@@ -1,0 +1,376 @@
+{
+  "mod_elements": [
+    {
+      "name": "GambleEnchantment",
+      "type": "enchantment",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gamble_enchantment",
+      "path": "~/CustomEnchantments"
+    },
+    {
+      "name": "GambleSwordEnchantment",
+      "type": "procedure",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gamble_sword_enchantment",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/EnchantmentProcedures"
+    },
+    {
+      "name": "ResetDebounce",
+      "type": "procedure",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "reset_debounce",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PeroxideEnchantment",
+      "type": "enchantment",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "peroxide_enchantment",
+      "path": "~/CustomEnchantments"
+    },
+    {
+      "name": "PeroxidePantEnchantment",
+      "type": "procedure",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "peroxide_pant_enchantment",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/EnchantmentProcedures"
+    },
+    {
+      "name": "MirrorEnchantment",
+      "type": "enchantment",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mirror_enchantment",
+      "path": "~/CustomEnchantments"
+    },
+    {
+      "name": "ScoreboardOnKill",
+      "type": "procedure",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "scoreboard_on_kill",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scoreboard"
+    },
+    {
+      "name": "EnderSlayer",
+      "type": "enchantment",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ender_slayer_enchantment",
+      "path": "~/CustomEnchantments"
+    },
+    {
+      "name": "EnderSlayerSwordEnchantment",
+      "type": "procedure",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ender_slayer_sword_enchantment",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "amount",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/EnchantmentProcedures"
+    },
+    {
+      "name": "PhoenixEnchantment",
+      "type": "enchantment",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "phoenix_enchantment",
+      "path": "~/CustomEnchantments"
+    },
+    {
+      "name": "PhoenixPantEnchantment",
+      "type": "procedure",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "phoenix_pant_enchantment",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/EnchantmentProcedures"
+    },
+    {
+      "name": "IronyEnchantment",
+      "type": "enchantment",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "irony_enchantment",
+      "path": "~/CustomEnchantments"
+    },
+    {
+      "name": "VampireEnchantment",
+      "type": "enchantment",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "vampire_enchantment",
+      "path": "~/CustomEnchantments"
+    },
+    {
+      "name": "VampirePantEnchantment",
+      "type": "procedure",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "vampire_pant_enchantment",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/EnchantmentProcedures"
+    },
+    {
+      "name": "PitVile",
+      "type": "item",
+      "sortid": 15,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pit_vile",
+      "path": "~/Vile"
+    },
+    {
+      "name": "EvilWithinEnchantment",
+      "type": "enchantment",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "evil_within_enchantment",
+      "path": "~/Vile"
+    },
+    {
+      "name": "EvilWithinPantEnchantment",
+      "type": "procedure",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "evil_within_pant_enchantment",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Vile"
+    }
+  ],
+  "variable_elements": [
+    {
+      "name": "GambleDebounce",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "PeroxideDebounce",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "PlayerGold",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "PhoenixDebounce",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
+    }
+  ],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {
+      "enchantment.klbs_new_pit.phoenix_enchantment": "Phoenix",
+      "enchantment.klbs_new_pit.mirror_enchantment": "Mirror",
+      "enchantment.klbs_new_pit.ender_slayer_enchantment": "Ender Slayer",
+      "enchantment.klbs_new_pit.vampire_enchantment": "Vampire",
+      "enchantment.klbs_new_pit.irony_enchantment": "Irony",
+      "enchantment.klbs_new_pit.evil_within_enchantment": "§5Evil Within",
+      "enchantment.klbs_new_pit.peroxide_enchantment": "Peroxide",
+      "item.klbs_new_pit.pit_vile": "§5Chunk Of Vile",
+      "enchantment.klbs_new_pit.gamble_enchantment": "Gamble",
+      "death.attack.gambled": "%1$s gambled to there death."
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "CustomEnchantments",
+        "children": []
+      },
+      {
+        "name": "EnchantmentProcedures",
+        "children": []
+      },
+      {
+        "name": "Scoreboard",
+        "children": []
+      },
+      {
+        "name": "CustomSwords",
+        "children": []
+      },
+      {
+        "name": "CustomBows",
+        "children": []
+      },
+      {
+        "name": "Vile",
+        "children": []
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "klbs_new_pit",
+    "modName": "KLB\u0027s New Pit",
+    "version": "1.0.0",
+    "author": "keega, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Academic Free License v3.0",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.16.5",
+    "modElementsPackage": "net.mcreator.klbsnewpit",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202200234517
+}
