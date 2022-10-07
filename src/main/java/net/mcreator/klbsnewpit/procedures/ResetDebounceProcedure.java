@@ -50,5 +50,12 @@ public class ResetDebounceProcedure {
 				capability.syncPlayerVariables(entity);
 			});
 		}
+		{
+			double _setval = 0;
+			entity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.PerunStrikes = _setval;
+				capability.syncPlayerVariables(entity);
+			});
+		}
 	}
 }

@@ -75,6 +75,8 @@ public class KlbsNewPitModVariables {
 			nbt.putBoolean("PeroxideDebounce", instance.PeroxideDebounce);
 			nbt.putDouble("PlayerGold", instance.PlayerGold);
 			nbt.putBoolean("PhoenixDebounce", instance.PhoenixDebounce);
+			nbt.putDouble("PerunStrikes", instance.PerunStrikes);
+			nbt.putBoolean("PerunDebounce", instance.PerunDebounce);
 			return nbt;
 		}
 
@@ -85,6 +87,8 @@ public class KlbsNewPitModVariables {
 			instance.PeroxideDebounce = nbt.getBoolean("PeroxideDebounce");
 			instance.PlayerGold = nbt.getDouble("PlayerGold");
 			instance.PhoenixDebounce = nbt.getBoolean("PhoenixDebounce");
+			instance.PerunStrikes = nbt.getDouble("PerunStrikes");
+			instance.PerunDebounce = nbt.getBoolean("PerunDebounce");
 		}
 	}
 
@@ -93,6 +97,8 @@ public class KlbsNewPitModVariables {
 		public boolean PeroxideDebounce = false;
 		public double PlayerGold = 0;
 		public boolean PhoenixDebounce = false;
+		public double PerunStrikes = 0.0;
+		public boolean PerunDebounce = false;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -130,6 +136,8 @@ public class KlbsNewPitModVariables {
 		clone.GambleDebounce = original.GambleDebounce;
 		clone.PeroxideDebounce = original.PeroxideDebounce;
 		clone.PlayerGold = original.PlayerGold;
+		clone.PerunStrikes = original.PerunStrikes;
+		clone.PerunDebounce = original.PerunDebounce;
 		if (!event.isWasDeath()) {
 			clone.PhoenixDebounce = original.PhoenixDebounce;
 		}
@@ -161,6 +169,8 @@ public class KlbsNewPitModVariables {
 					variables.PeroxideDebounce = message.data.PeroxideDebounce;
 					variables.PlayerGold = message.data.PlayerGold;
 					variables.PhoenixDebounce = message.data.PhoenixDebounce;
+					variables.PerunStrikes = message.data.PerunStrikes;
+					variables.PerunDebounce = message.data.PerunDebounce;
 				}
 			});
 			context.setPacketHandled(true);

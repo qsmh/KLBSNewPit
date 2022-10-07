@@ -283,6 +283,52 @@
         ]
       },
       "path": "~/Vile"
+    },
+    {
+      "name": "PerunSwordPitProcedure",
+      "type": "procedure",
+      "sortid": 18,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "perun_sword_pit_procedure",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/CustomSwords"
+    },
+    {
+      "name": "PerunsWrathSwordPit",
+      "type": "tool",
+      "sortid": 19,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "peruns_wrath_sword_pit",
+      "path": "~/CustomSwords"
     }
   ],
   "variable_elements": [
@@ -309,6 +355,18 @@
       "type": "logic",
       "scope": "player_lifetime",
       "value": "false"
+    },
+    {
+      "name": "PerunStrikes",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0.0"
+    },
+    {
+      "name": "PerunDebounce",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
     }
   ],
   "sound_elements": [],
@@ -323,7 +381,8 @@
       "enchantment.klbs_new_pit.peroxide_enchantment": "Peroxide",
       "item.klbs_new_pit.pit_vile": "§5Chunk Of Vile",
       "enchantment.klbs_new_pit.gamble_enchantment": "Gamble",
-      "death.attack.gambled": "%1$s gambled to there death."
+      "death.attack.gambled": "%1$s gambled to there death.",
+      "item.klbs_new_pit.peruns_wrath_sword_pit": "§ePerun\u0027s Wrath"
     }
   },
   "foldersRoot": {
