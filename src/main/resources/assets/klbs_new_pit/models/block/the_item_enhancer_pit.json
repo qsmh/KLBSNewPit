@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "klbs_new_pit:blocks/furnace_top",
+    "up": "klbs_new_pit:blocks/furnace_top",
+    "north": "klbs_new_pit:blocks/furnace_front",
+    "east": "klbs_new_pit:blocks/furnace_top",
+    "south": "klbs_new_pit:blocks/furnace_top",
+    "west": "klbs_new_pit:blocks/furnace_top",
+    "particle": "klbs_new_pit:blocks/furnace_top"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "klbs_new_pit:block/the_item_enhancer_pit"
+    },
+    "facing=east": {
+      "model": "klbs_new_pit:block/the_item_enhancer_pit",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "klbs_new_pit:block/the_item_enhancer_pit",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "klbs_new_pit:block/the_item_enhancer_pit",
+      "y": 270
+    }
+  }
+}
