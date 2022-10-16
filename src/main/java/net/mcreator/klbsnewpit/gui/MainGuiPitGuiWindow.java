@@ -5,16 +5,14 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.World;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
-import net.mcreator.klbsnewpit.KlbsNewPitMod;
+import net.mcreator.klbsnewpit.KlbsNewPitModVariables;
 
 import java.util.HashMap;
 
@@ -22,13 +20,13 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
 @OnlyIn(Dist.CLIENT)
-public class ItemEnchanerPitGUIGuiWindow extends ContainerScreen<ItemEnchanerPitGUIGui.GuiContainerMod> {
+public class MainGuiPitGuiWindow extends ContainerScreen<MainGuiPitGui.GuiContainerMod> {
 	private World world;
 	private int x, y, z;
 	private PlayerEntity entity;
-	private final static HashMap guistate = ItemEnchanerPitGUIGui.guistate;
+	private final static HashMap guistate = MainGuiPitGui.guistate;
 
-	public ItemEnchanerPitGUIGuiWindow(ItemEnchanerPitGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
+	public MainGuiPitGuiWindow(MainGuiPitGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
 		this.x = container.x;
@@ -39,7 +37,7 @@ public class ItemEnchanerPitGUIGuiWindow extends ContainerScreen<ItemEnchanerPit
 		this.ySize = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("klbs_new_pit:textures/screens/item_enchaner_pit_gui.png");
+	private static final ResourceLocation texture = new ResourceLocation("klbs_new_pit:textures/screens/main_gui_pit.png");
 
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
@@ -57,10 +55,6 @@ public class ItemEnchanerPitGUIGuiWindow extends ContainerScreen<ItemEnchanerPit
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
-
-		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("klbs_new_pit:textures/screens/furnace1.png"));
-		this.blit(ms, this.guiLeft + 74, this.guiTop + 29, 0, 0, 27, 27, 27, 27);
-
 		RenderSystem.disableBlend();
 	}
 
@@ -80,8 +74,8 @@ public class ItemEnchanerPitGUIGuiWindow extends ContainerScreen<ItemEnchanerPit
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
-		this.font.drawString(ms, "Enchancer", 63, 7, -12829636);
-		this.font.drawString(ms, "Cost: 500 Gold", 56, 18, -12829636);
+		this.font.drawString(ms, "" + (int) ((entity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new KlbsNewPitModVariables.PlayerVariables())).PlayerGold) + " gold", 5, 7, -12829636);
 	}
 
 	@Override
@@ -94,11 +88,5 @@ public class ItemEnchanerPitGUIGuiWindow extends ContainerScreen<ItemEnchanerPit
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
-		this.addButton(new Button(this.guiLeft + 56, this.guiTop + 61, 61, 20, new StringTextComponent("Convert"), e -> {
-			if (true) {
-				KlbsNewPitMod.PACKET_HANDLER.sendToServer(new ItemEnchanerPitGUIGui.ButtonPressedMessage(0, x, y, z));
-				ItemEnchanerPitGUIGui.handleButtonAction(entity, 0, x, y, z);
-			}
-		}));
 	}
 }

@@ -111,7 +111,7 @@ public class PeroxidePantEnchantmentProcedure {
 							}
 							MinecraftForge.EVENT_BUS.unregister(this);
 						}
-					}.start(world, (int) 40);
+					}.start(world, (int) 35);
 				}
 				if (EnchantmentHelper.getEnchantmentLevel(PeroxideEnchantmentEnchantment.enchantment,
 						((entity instanceof LivingEntity)
@@ -150,7 +150,7 @@ public class PeroxidePantEnchantmentProcedure {
 							}
 							MinecraftForge.EVENT_BUS.unregister(this);
 						}
-					}.start(world, (int) 40);
+					}.start(world, (int) 35);
 				}
 				if (EnchantmentHelper.getEnchantmentLevel(PeroxideEnchantmentEnchantment.enchantment,
 						((entity instanceof LivingEntity)
@@ -189,7 +189,7 @@ public class PeroxidePantEnchantmentProcedure {
 							}
 							MinecraftForge.EVENT_BUS.unregister(this);
 						}
-					}.start(world, (int) 40);
+					}.start(world, (int) 35);
 				}
 			}
 		}

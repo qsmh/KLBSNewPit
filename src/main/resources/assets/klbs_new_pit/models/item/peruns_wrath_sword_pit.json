@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "klbs_new_pit:items/golden_sword"
+    "layer0": "klbs_new_pit:items/gold_sword"
   }
 }

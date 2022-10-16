@@ -349,27 +349,6 @@
       "path": "~/CustomBlocks"
     },
     {
-      "name": "ItemEnhancerReceivedProcedure",
-      "type": "procedure",
-      "sortid": 24,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "item_enhancer_received_procedure",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/CustomBlocks"
-    },
-    {
       "name": "ItemEnhancerTookProcedure",
       "type": "procedure",
       "sortid": 25,
@@ -381,10 +360,113 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
       "path": "~/CustomBlocks"
+    },
+    {
+      "name": "KLBPitExtraDamage",
+      "type": "procedure",
+      "sortid": 26,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "klb_pit_extra_damage",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/CustomBlocks"
+    },
+    {
+      "name": "ToggleMainGuiPit",
+      "type": "keybind",
+      "sortid": 27,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toggle_main_gui_pit",
+      "path": "~/CustomMainGui"
+    },
+    {
+      "name": "ToggleMainGuiPitOnKeyPressed",
+      "type": "procedure",
+      "sortid": 27,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toggle_main_gui_pit_on_key_pressed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/CustomMainGui"
+    },
+    {
+      "name": "MainGuiPit",
+      "type": "gui",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "main_gui_pit",
+      "path": "~/CustomMainGui"
+    },
+    {
+      "name": "DarkPantArmor",
+      "type": "armor",
+      "sortid": 29,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dark_pant_armor",
+      "metadata": {
+        "eh": false,
+        "el": true,
+        "eb": false,
+        "ec": false
+      },
+      "path": "~/Vile"
     }
   ],
   "variable_elements": [
@@ -430,12 +512,17 @@
     "en_us": {
       "enchantment.klbs_new_pit.ender_slayer_enchantment": "Ender Slayer",
       "enchantment.klbs_new_pit.irony_enchantment": "Irony",
+      "item.klbs_new_pit.dark_pant_armor_boots": "Dark Pant Armor Boots",
       "block.klbs_new_pit.the_item_enhancer_pit": "Enhancer",
       "enchantment.klbs_new_pit.gamble_enchantment": "Gamble",
       "death.attack.gambled": "%1$s gambled to there death.",
+      "item.klbs_new_pit.dark_pant_armor_helmet": "Dark Pant Armor Helmet",
       "enchantment.klbs_new_pit.phoenix_enchantment": "Phoenix",
       "enchantment.klbs_new_pit.mirror_enchantment": "Mirror",
+      "key.klbs_new_pit.toggle_main_gui_pit": "Main Pit Gui",
+      "item.klbs_new_pit.dark_pant_armor_leggings": "§5Dark Pants",
       "enchantment.klbs_new_pit.vampire_enchantment": "Vampire",
+      "item.klbs_new_pit.dark_pant_armor_chestplate": "Dark Pant Armor Body",
       "enchantment.klbs_new_pit.evil_within_enchantment": "§5Evil Within",
       "enchantment.klbs_new_pit.peroxide_enchantment": "Peroxide",
       "item.klbs_new_pit.pit_vile": "§5Chunk Of Vile",
@@ -471,6 +558,10 @@
       },
       {
         "name": "CustomBlocks",
+        "children": []
+      },
+      {
+        "name": "CustomMainGui",
         "children": []
       }
     ]

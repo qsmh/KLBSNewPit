@@ -19,7 +19,7 @@
             "falpha": 0.0
           },
           "name": "Enchancer",
-          "x": 186,
+          "x": 189,
           "y": 44
         }
       },
@@ -32,22 +32,8 @@
           "id": 0,
           "disableStackInteraction": false,
           "dropItemsWhenNotBound": true,
-          "onTakenFromSlot": {
-            "name": "ItemEnhancerReceivedProcedure"
-          },
           "name": "Slot #0",
           "x": 168,
-          "y": 71
-        }
-      },
-      {
-        "type": "outputslot",
-        "data": {
-          "id": 1,
-          "disableStackInteraction": false,
-          "dropItemsWhenNotBound": true,
-          "name": "Slot #1",
-          "x": 240,
           "y": 71
         }
       },
@@ -62,16 +48,41 @@
         }
       },
       {
+        "type": "button",
+        "data": {
+          "text": "Convert",
+          "onClick": {
+            "name": "ItemEnhancerTookProcedure"
+          },
+          "width": 61,
+          "height": 20,
+          "name": "Convert",
+          "x": 182,
+          "y": 98
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 1,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #1",
+          "x": 240,
+          "y": 71
+        }
+      },
+      {
         "type": "label",
         "data": {
-          "text": "50 levels for +0.5 damage",
+          "text": "Cost: 500 Gold",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "50 levels for +0.5 damage",
-          "x": 151,
-          "y": 107
+          "name": "Cost: 500 Gold",
+          "x": 182,
+          "y": 55
         }
       }
     ],

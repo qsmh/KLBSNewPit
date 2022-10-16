@@ -28,7 +28,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.client.gui.ScreenManager;
 
-import net.mcreator.klbsnewpit.procedures.ItemEnhancerReceivedProcedureProcedure;
+import net.mcreator.klbsnewpit.procedures.ItemEnhancerTookProcedureProcedure;
 import net.mcreator.klbsnewpit.KlbsNewPitModElements;
 import net.mcreator.klbsnewpit.KlbsNewPitMod;
 
@@ -122,12 +122,6 @@ public class ItemEnchanerPitGUIGui extends KlbsNewPitModElements.ModElement {
 				}
 			}
 			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 43, 35) {
-				@Override
-				public ItemStack onTake(PlayerEntity entity, ItemStack stack) {
-					ItemStack retval = super.onTake(entity, stack);
-					GuiContainerMod.this.slotChanged(0, 1, 0);
-					return retval;
-				}
 			}));
 			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 115, 35) {
 				@Override
@@ -382,6 +376,13 @@ public class ItemEnchanerPitGUIGui extends KlbsNewPitModElements.ModElement {
 		// security measure to prevent arbitrary chunk generation
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
+		if (buttonID == 0) {
+
+			ItemEnhancerTookProcedureProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
 	}
 
 	private static void handleSlotAction(PlayerEntity entity, int slotID, int changeType, int meta, int x, int y, int z) {
@@ -389,11 +390,5 @@ public class ItemEnchanerPitGUIGui extends KlbsNewPitModElements.ModElement {
 		// security measure to prevent arbitrary chunk generation
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
-		if (slotID == 0 && changeType == 1) {
-
-			ItemEnhancerReceivedProcedureProcedure
-					.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
-							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-		}
 	}
 }

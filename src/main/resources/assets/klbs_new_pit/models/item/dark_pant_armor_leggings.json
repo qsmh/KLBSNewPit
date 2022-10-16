@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "klbs_new_pit:items/leather_leggings_overlay"
+  }
+}

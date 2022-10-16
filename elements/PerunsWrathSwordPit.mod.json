@@ -3,7 +3,7 @@
   "_type": "tool",
   "definition": {
     "renderType": 0,
-    "texture": "golden_sword",
+    "texture": "gold_sword",
     "customModelName": "Normal",
     "name": "§ePerun's Wrath",
     "specialInfo": [
@@ -20,7 +20,7 @@
     "damageVsEntity": 4.5,
     "usageCount": 100,
     "blocksAffected": [],
-    "hasGlow": false,
+    "hasGlow": true,
     "repairItems": [],
     "immuneToFire": true,
     "stayInGridWhenCrafting": false,
