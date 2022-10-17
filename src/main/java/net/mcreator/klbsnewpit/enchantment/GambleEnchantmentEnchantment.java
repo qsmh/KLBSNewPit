@@ -3,12 +3,12 @@ package net.mcreator.klbsnewpit.enchantment;
 
 import net.minecraftforge.registries.ObjectHolder;
 
-import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.enchantment.EnchantmentType;
 import net.minecraft.enchantment.Enchantment;
 
+import net.mcreator.klbsnewpit.item.PerunsWrathSwordPitItem;
 import net.mcreator.klbsnewpit.KlbsNewPitModElements;
 
 @KlbsNewPitModElements.ModElement.Tag
@@ -42,17 +42,7 @@ public class GambleEnchantmentEnchantment extends KlbsNewPitModElements.ModEleme
 
 		@Override
 		public boolean canApplyAtEnchantingTable(ItemStack stack) {
-			if (stack.getItem() == Items.WOODEN_SWORD)
-				return true;
-			if (stack.getItem() == Items.STONE_SWORD)
-				return true;
-			if (stack.getItem() == Items.IRON_SWORD)
-				return true;
-			if (stack.getItem() == Items.GOLDEN_SWORD)
-				return true;
-			if (stack.getItem() == Items.DIAMOND_SWORD)
-				return true;
-			if (stack.getItem() == Items.NETHERITE_SWORD)
+			if (stack.getItem() == PerunsWrathSwordPitItem.block)
 				return true;
 			return false;
 		}

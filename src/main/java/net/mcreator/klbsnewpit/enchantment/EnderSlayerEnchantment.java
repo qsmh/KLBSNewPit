@@ -10,6 +10,7 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.enchantment.EnchantmentType;
 import net.minecraft.enchantment.Enchantment;
 
+import net.mcreator.klbsnewpit.item.PerunsWrathSwordPitItem;
 import net.mcreator.klbsnewpit.KlbsNewPitModElements;
 
 @KlbsNewPitModElements.ModElement.Tag
@@ -62,6 +63,8 @@ public class EnderSlayerEnchantment extends KlbsNewPitModElements.ModElement {
 
 		@Override
 		public boolean canApplyAtEnchantingTable(ItemStack stack) {
+			if (stack.getItem() == PerunsWrathSwordPitItem.block)
+				return true;
 			if (stack.getItem() == Items.WOODEN_SWORD)
 				return true;
 			if (stack.getItem() == Items.STONE_SWORD)

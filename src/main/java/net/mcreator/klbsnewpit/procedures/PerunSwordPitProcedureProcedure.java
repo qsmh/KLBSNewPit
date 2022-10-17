@@ -16,8 +16,10 @@ import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Entity;
+import net.minecraft.enchantment.EnchantmentHelper;
 
 import net.mcreator.klbsnewpit.item.DarkPantArmorItem;
+import net.mcreator.klbsnewpit.enchantment.MirrorEnchantmentEnchantment;
 import net.mcreator.klbsnewpit.KlbsNewPitModVariables;
 import net.mcreator.klbsnewpit.KlbsNewPitMod;
 
@@ -68,58 +70,90 @@ public class PerunSwordPitProcedureProcedure {
 					.orElse(new KlbsNewPitModVariables.PlayerVariables())).PerunStrikes == 3
 					&& (sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 							.orElse(new KlbsNewPitModVariables.PlayerVariables())).PerunDebounce == false) {
-				{
-					boolean _setval = (true);
-					sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.PerunDebounce = _setval;
-						capability.syncPlayerVariables(sourceentity);
-					});
-				}
-				if (world instanceof ServerWorld) {
-					LightningBoltEntity _ent = EntityType.LIGHTNING_BOLT.create((World) world);
-					_ent.moveForced(Vector3d.copyCenteredHorizontally(new BlockPos(x, y, z)));
-					_ent.setEffectOnly(true);
-					((World) world).addEntity(_ent);
-				}
-				entity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 4);
-				{
-					double _setval = 0;
-					sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.PerunStrikes = _setval;
-						capability.syncPlayerVariables(sourceentity);
-					});
-				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private IWorld world;
-
-					public void start(IWorld world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+						((entity instanceof LivingEntity)
+								? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+								: ItemStack.EMPTY)) != 0)
+						&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+								((entity instanceof LivingEntity)
+										? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+										: ItemStack.EMPTY)) == 1) {
+					entity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 0);
+				} else if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+						((entity instanceof LivingEntity)
+								? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+								: ItemStack.EMPTY)) != 0)
+						&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+								((entity instanceof LivingEntity)
+										? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+										: ItemStack.EMPTY)) == 2) {
+					sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 2);
+				} else if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+						((entity instanceof LivingEntity)
+								? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+								: ItemStack.EMPTY)) != 0)
+						&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+								((entity instanceof LivingEntity)
+										? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+										: ItemStack.EMPTY)) == 3) {
+					sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 4);
+				} else if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+						((entity instanceof LivingEntity)
+								? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+								: ItemStack.EMPTY)) != 0) == false) {
+					{
+						boolean _setval = (true);
+						sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+							capability.PerunDebounce = _setval;
+							capability.syncPlayerVariables(sourceentity);
+						});
 					}
+					if (world instanceof ServerWorld) {
+						LightningBoltEntity _ent = EntityType.LIGHTNING_BOLT.create((World) world);
+						_ent.moveForced(Vector3d.copyCenteredHorizontally(new BlockPos(x, y, z)));
+						_ent.setEffectOnly(true);
+						((World) world).addEntity(_ent);
+					}
+					entity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 4.5);
+					{
+						double _setval = 0;
+						sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+							capability.PerunStrikes = _setval;
+							capability.syncPlayerVariables(sourceentity);
+						});
+					}
+					new Object() {
+						private int ticks = 0;
+						private float waitTicks;
+						private IWorld world;
 
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
+						public void start(IWorld world, int waitTicks) {
+							this.waitTicks = waitTicks;
+							MinecraftForge.EVENT_BUS.register(this);
+							this.world = world;
 						}
-					}
 
-					private void run() {
-						{
-							boolean _setval = (false);
-							sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-								capability.PerunDebounce = _setval;
-								capability.syncPlayerVariables(sourceentity);
-							});
+						@SubscribeEvent
+						public void tick(TickEvent.ServerTickEvent event) {
+							if (event.phase == TickEvent.Phase.END) {
+								this.ticks += 1;
+								if (this.ticks >= this.waitTicks)
+									run();
+							}
 						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, (int) 9);
+
+						private void run() {
+							{
+								boolean _setval = (false);
+								sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+									capability.PerunDebounce = _setval;
+									capability.syncPlayerVariables(sourceentity);
+								});
+							}
+							MinecraftForge.EVENT_BUS.unregister(this);
+						}
+					}.start(world, (int) 9);
+				}
 			} else if ((sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new KlbsNewPitModVariables.PlayerVariables())).PerunStrikes != 3
 					&& (sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null)

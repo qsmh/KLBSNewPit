@@ -8,6 +8,8 @@ import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
+import net.minecraft.potion.Effects;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.item.ItemStack;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.entity.LivingEntity;
@@ -79,8 +81,7 @@ public class PeroxidePantEnchantmentProcedure {
 								? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
 								: ItemStack.EMPTY)) == 1) {
 					if (entity instanceof LivingEntity)
-						((LivingEntity) entity)
-								.setHealth((float) (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) + 1));
+						((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.REGENERATION, (int) 80, (int) 0));
 					new Object() {
 						private int ticks = 0;
 						private float waitTicks;
@@ -111,15 +112,14 @@ public class PeroxidePantEnchantmentProcedure {
 							}
 							MinecraftForge.EVENT_BUS.unregister(this);
 						}
-					}.start(world, (int) 35);
+					}.start(world, (int) 160);
 				}
 				if (EnchantmentHelper.getEnchantmentLevel(PeroxideEnchantmentEnchantment.enchantment,
 						((entity instanceof LivingEntity)
 								? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
 								: ItemStack.EMPTY)) == 2) {
 					if (entity instanceof LivingEntity)
-						((LivingEntity) entity)
-								.setHealth((float) (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) + 2));
+						((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.REGENERATION, (int) 80, (int) 1));
 					new Object() {
 						private int ticks = 0;
 						private float waitTicks;
@@ -150,15 +150,14 @@ public class PeroxidePantEnchantmentProcedure {
 							}
 							MinecraftForge.EVENT_BUS.unregister(this);
 						}
-					}.start(world, (int) 35);
+					}.start(world, (int) 160);
 				}
 				if (EnchantmentHelper.getEnchantmentLevel(PeroxideEnchantmentEnchantment.enchantment,
 						((entity instanceof LivingEntity)
 								? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
 								: ItemStack.EMPTY)) == 3) {
 					if (entity instanceof LivingEntity)
-						((LivingEntity) entity)
-								.setHealth((float) (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) + 3));
+						((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.REGENERATION, (int) 160, (int) 1));
 					new Object() {
 						private int ticks = 0;
 						private float waitTicks;
@@ -189,7 +188,7 @@ public class PeroxidePantEnchantmentProcedure {
 							}
 							MinecraftForge.EVENT_BUS.unregister(this);
 						}
-					}.start(world, (int) 35);
+					}.start(world, (int) 320);
 				}
 			}
 		}

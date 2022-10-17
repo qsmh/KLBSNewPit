@@ -3,8 +3,6 @@ package net.mcreator.klbsnewpit.enchantment;
 
 import net.minecraftforge.registries.ObjectHolder;
 
-import net.minecraft.item.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.enchantment.EnchantmentType;
 import net.minecraft.enchantment.Enchantment;
@@ -38,13 +36,6 @@ public class PeroxideEnchantmentEnchantment extends KlbsNewPitModElements.ModEle
 		@Override
 		public int getMaxLevel() {
 			return 3;
-		}
-
-		@Override
-		public boolean canApplyAtEnchantingTable(ItemStack stack) {
-			if (stack.getItem() == Items.LEATHER_LEGGINGS)
-				return true;
-			return false;
 		}
 
 		@Override

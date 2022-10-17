@@ -33,6 +33,9 @@
     ],
     "compatibleItems": [
       {
+        "value": "CUSTOM:PerunsWrathSwordPit"
+      },
+      {
         "value": "Items.WOODEN_SWORD"
       },
       {

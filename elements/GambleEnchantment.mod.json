@@ -11,22 +11,7 @@
     "compatibleEnchantments": [],
     "compatibleItems": [
       {
-        "value": "Items.WOODEN_SWORD"
-      },
-      {
-        "value": "Items.STONE_SWORD"
-      },
-      {
-        "value": "Items.IRON_SWORD"
-      },
-      {
-        "value": "Items.GOLDEN_SWORD"
-      },
-      {
-        "value": "Items.DIAMOND_SWORD"
-      },
-      {
-        "value": "Items.NETHERITE_SWORD"
+        "value": "CUSTOM:PerunsWrathSwordPit"
       }
     ],
     "isTreasureEnchantment": false,

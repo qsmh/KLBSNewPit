@@ -195,15 +195,6 @@
       "path": "~/EnchantmentProcedures"
     },
     {
-      "name": "IronyEnchantment",
-      "type": "enchantment",
-      "sortid": 12,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "irony_enchantment",
-      "path": "~/CustomEnchantments"
-    },
-    {
       "name": "VampireEnchantment",
       "type": "enchantment",
       "sortid": 13,
@@ -467,6 +458,15 @@
         "ec": false
       },
       "path": "~/Vile"
+    },
+    {
+      "name": "IsMysticTagPit",
+      "type": "tag",
+      "sortid": 30,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_mystic_tag_pit",
+      "path": "~/NBTTags"
     }
   ],
   "variable_elements": [
@@ -511,7 +511,6 @@
   "language_map": {
     "en_us": {
       "enchantment.klbs_new_pit.ender_slayer_enchantment": "Ender Slayer",
-      "enchantment.klbs_new_pit.irony_enchantment": "Irony",
       "item.klbs_new_pit.dark_pant_armor_boots": "Dark Pant Armor Boots",
       "block.klbs_new_pit.the_item_enhancer_pit": "Enhancer",
       "enchantment.klbs_new_pit.gamble_enchantment": "Gamble",
@@ -562,6 +561,10 @@
       },
       {
         "name": "CustomMainGui",
+        "children": []
+      },
+      {
+        "name": "NBTTags",
         "children": []
       }
     ]
