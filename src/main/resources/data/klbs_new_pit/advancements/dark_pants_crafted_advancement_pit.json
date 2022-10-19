@@ -1,0 +1,23 @@
+{
+  "display": {
+    "background": "minecraft:textures/block/stone.png",
+    "icon": {
+      "item": "klbs_new_pit:dark_pant_armor_leggings"
+    },
+    "title": {
+      "translate": "advancements.dark_pants_crafted_advancement_pit.title"
+    },
+    "description": {
+      "translate": "advancements.dark_pants_crafted_advancement_pit.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "dark_pants_crafted_advancement_pit": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

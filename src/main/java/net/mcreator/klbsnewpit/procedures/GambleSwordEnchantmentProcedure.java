@@ -19,6 +19,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.enchantment.EnchantmentHelper;
 
+import net.mcreator.klbsnewpit.item.DarkPantArmorItem;
 import net.mcreator.klbsnewpit.enchantment.MirrorEnchantmentEnchantment;
 import net.mcreator.klbsnewpit.enchantment.GambleEnchantmentEnchantment;
 import net.mcreator.klbsnewpit.KlbsNewPitModVariables;
@@ -93,79 +94,20 @@ public class GambleSwordEnchantmentProcedure {
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
 		if ((EnchantmentHelper.getEnchantmentLevel(GambleEnchantmentEnchantment.enchantment,
 				((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)) != 0)) {
-			if ((sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new KlbsNewPitModVariables.PlayerVariables())).GambleDebounce == false) {
-				{
-					boolean _setval = (true);
-					sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.GambleDebounce = _setval;
-						capability.syncPlayerVariables(sourceentity);
-					});
-				}
-				if (EnchantmentHelper.getEnchantmentLevel(GambleEnchantmentEnchantment.enchantment,
-						((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)) == 1) {
-					if (Math.random() <= 0.4) {
-						sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 2);
-						if (world instanceof World && !world.isRemote()) {
-							((World) world).playSound(null, new BlockPos(x, y, z),
-									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.place")),
-									SoundCategory.MASTER, (float) 1, (float) (-1));
-						} else {
-							((World) world).playSound(x, y, z,
-									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.place")),
-									SoundCategory.MASTER, (float) 1, (float) (-1), false);
-						}
-						if (world instanceof World && !world.isRemote()) {
-							((World) world).playSound(null, new BlockPos(x, y, z),
-									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.place")),
-									SoundCategory.MASTER, (float) 1, (float) (-1));
-						} else {
-							((World) world).playSound(x, y, z,
-									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.place")),
-									SoundCategory.MASTER, (float) 1, (float) (-1), false);
-						}
-					} else {
-						if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-								((entity instanceof LivingEntity)
-										? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-										: ItemStack.EMPTY)) != 0)
-								&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-										((entity instanceof LivingEntity)
-												? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-												: ItemStack.EMPTY)) == 1) {
-							entity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 0);
-							if (world instanceof World && !world.isRemote()) {
-								((World) world)
-										.playSound(null, new BlockPos(x, y, z),
-												(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-														.getValue(new ResourceLocation("block.anvil.place")),
-												SoundCategory.MASTER, (float) 1, (float) (-1));
-							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("block.anvil.place")),
-										SoundCategory.MASTER, (float) 1, (float) (-1), false);
-							}
-							if (world instanceof World && !world.isRemote()) {
-								((World) world)
-										.playSound(null, new BlockPos(x, y, z),
-												(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-														.getValue(new ResourceLocation("block.anvil.place")),
-												SoundCategory.MASTER, (float) 1, (float) (-1));
-							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("block.anvil.place")),
-										SoundCategory.MASTER, (float) 1, (float) (-1), false);
-							}
-						} else if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-								((entity instanceof LivingEntity)
-										? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-										: ItemStack.EMPTY)) != 0)
-								&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-										((entity instanceof LivingEntity)
-												? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-												: ItemStack.EMPTY)) == 2) {
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS) : ItemStack.EMPTY)
+					.getItem() == DarkPantArmorItem.legs) == false) {
+				if ((sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new KlbsNewPitModVariables.PlayerVariables())).GambleDebounce == false) {
+					{
+						boolean _setval = (true);
+						sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+							capability.GambleDebounce = _setval;
+							capability.syncPlayerVariables(sourceentity);
+						});
+					}
+					if (EnchantmentHelper.getEnchantmentLevel(GambleEnchantmentEnchantment.enchantment,
+							((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)) == 1) {
+						if (Math.random() <= 0.4) {
 							sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 2);
 							if (world instanceof World && !world.isRemote()) {
 								((World) world)
@@ -191,14 +133,161 @@ public class GambleSwordEnchantmentProcedure {
 												.getValue(new ResourceLocation("block.anvil.place")),
 										SoundCategory.MASTER, (float) 1, (float) (-1), false);
 							}
-						} else if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-								((entity instanceof LivingEntity)
-										? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-										: ItemStack.EMPTY)) != 0)
-								&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-										((entity instanceof LivingEntity)
-												? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-												: ItemStack.EMPTY)) == 3) {
+						} else {
+							if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+									((entity instanceof LivingEntity)
+											? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+											: ItemStack.EMPTY)) != 0)
+									&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+											((entity instanceof LivingEntity)
+													? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+													: ItemStack.EMPTY)) == 1) {
+								entity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 0);
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
+							} else if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+									((entity instanceof LivingEntity)
+											? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+											: ItemStack.EMPTY)) != 0)
+									&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+											((entity instanceof LivingEntity)
+													? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+													: ItemStack.EMPTY)) == 2) {
+								sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 2);
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
+							} else if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+									((entity instanceof LivingEntity)
+											? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+											: ItemStack.EMPTY)) != 0)
+									&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+											((entity instanceof LivingEntity)
+													? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+													: ItemStack.EMPTY)) == 3) {
+								sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 4);
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
+							} else {
+								entity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 2);
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("entity.arrow.hit_player")),
+											SoundCategory.MASTER, (float) 1, (float) 1);
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("entity.arrow.hit_player")),
+											SoundCategory.MASTER, (float) 1, (float) 1, false);
+								}
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("entity.arrow.hit_player")),
+											SoundCategory.MASTER, (float) 1, (float) 1);
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("entity.arrow.hit_player")),
+											SoundCategory.MASTER, (float) 1, (float) 1, false);
+								}
+							}
+						}
+						new Object() {
+							private int ticks = 0;
+							private float waitTicks;
+							private IWorld world;
+
+							public void start(IWorld world, int waitTicks) {
+								this.waitTicks = waitTicks;
+								MinecraftForge.EVENT_BUS.register(this);
+								this.world = world;
+							}
+
+							@SubscribeEvent
+							public void tick(TickEvent.ServerTickEvent event) {
+								if (event.phase == TickEvent.Phase.END) {
+									this.ticks += 1;
+									if (this.ticks >= this.waitTicks)
+										run();
+								}
+							}
+
+							private void run() {
+								{
+									boolean _setval = (false);
+									sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+										capability.GambleDebounce = _setval;
+										capability.syncPlayerVariables(sourceentity);
+									});
+								}
+								MinecraftForge.EVENT_BUS.unregister(this);
+							}
+						}.start(world, (int) 9);
+					}
+					if (EnchantmentHelper.getEnchantmentLevel(GambleEnchantmentEnchantment.enchantment,
+							((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)) == 2) {
+						if (Math.random() <= 0.4) {
 							sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 4);
 							if (world instanceof World && !world.isRemote()) {
 								((World) world)
@@ -225,161 +314,161 @@ public class GambleSwordEnchantmentProcedure {
 										SoundCategory.MASTER, (float) 1, (float) (-1), false);
 							}
 						} else {
-							entity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 2);
-							if (world instanceof World && !world.isRemote()) {
-								((World) world).playSound(null, new BlockPos(x, y, z),
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("entity.arrow.hit_player")),
-										SoundCategory.MASTER, (float) 1, (float) 1);
+							if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+									((entity instanceof LivingEntity)
+											? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+											: ItemStack.EMPTY)) != 0)
+									&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+											((entity instanceof LivingEntity)
+													? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+													: ItemStack.EMPTY)) == 1) {
+								entity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 0);
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
+							} else if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+									((entity instanceof LivingEntity)
+											? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+											: ItemStack.EMPTY)) != 0)
+									&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+											((entity instanceof LivingEntity)
+													? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+													: ItemStack.EMPTY)) == 2) {
+								sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 2);
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
+							} else if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+									((entity instanceof LivingEntity)
+											? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+											: ItemStack.EMPTY)) != 0)
+									&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+											((entity instanceof LivingEntity)
+													? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+													: ItemStack.EMPTY)) == 3) {
+								sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 4);
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
 							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("entity.arrow.hit_player")),
-										SoundCategory.MASTER, (float) 1, (float) 1, false);
-							}
-							if (world instanceof World && !world.isRemote()) {
-								((World) world).playSound(null, new BlockPos(x, y, z),
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("entity.arrow.hit_player")),
-										SoundCategory.MASTER, (float) 1, (float) 1);
-							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("entity.arrow.hit_player")),
-										SoundCategory.MASTER, (float) 1, (float) 1, false);
+								entity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 4);
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("entity.arrow.hit_player")),
+											SoundCategory.MASTER, (float) 1, (float) 1);
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("entity.arrow.hit_player")),
+											SoundCategory.MASTER, (float) 1, (float) 1, false);
+								}
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("entity.arrow.hit_player")),
+											SoundCategory.MASTER, (float) 1, (float) 1);
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("entity.arrow.hit_player")),
+											SoundCategory.MASTER, (float) 1, (float) 1, false);
+								}
 							}
 						}
+						new Object() {
+							private int ticks = 0;
+							private float waitTicks;
+							private IWorld world;
+
+							public void start(IWorld world, int waitTicks) {
+								this.waitTicks = waitTicks;
+								MinecraftForge.EVENT_BUS.register(this);
+								this.world = world;
+							}
+
+							@SubscribeEvent
+							public void tick(TickEvent.ServerTickEvent event) {
+								if (event.phase == TickEvent.Phase.END) {
+									this.ticks += 1;
+									if (this.ticks >= this.waitTicks)
+										run();
+								}
+							}
+
+							private void run() {
+								{
+									boolean _setval = (false);
+									sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+										capability.GambleDebounce = _setval;
+										capability.syncPlayerVariables(sourceentity);
+									});
+								}
+								MinecraftForge.EVENT_BUS.unregister(this);
+							}
+						}.start(world, (int) 9);
 					}
-					new Object() {
-						private int ticks = 0;
-						private float waitTicks;
-						private IWorld world;
-
-						public void start(IWorld world, int waitTicks) {
-							this.waitTicks = waitTicks;
-							MinecraftForge.EVENT_BUS.register(this);
-							this.world = world;
-						}
-
-						@SubscribeEvent
-						public void tick(TickEvent.ServerTickEvent event) {
-							if (event.phase == TickEvent.Phase.END) {
-								this.ticks += 1;
-								if (this.ticks >= this.waitTicks)
-									run();
-							}
-						}
-
-						private void run() {
-							{
-								boolean _setval = (false);
-								sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-									capability.GambleDebounce = _setval;
-									capability.syncPlayerVariables(sourceentity);
-								});
-							}
-							MinecraftForge.EVENT_BUS.unregister(this);
-						}
-					}.start(world, (int) 9);
-				}
-				if (EnchantmentHelper.getEnchantmentLevel(GambleEnchantmentEnchantment.enchantment,
-						((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)) == 2) {
-					if (Math.random() <= 0.4) {
-						sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 4);
-						if (world instanceof World && !world.isRemote()) {
-							((World) world).playSound(null, new BlockPos(x, y, z),
-									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.place")),
-									SoundCategory.MASTER, (float) 1, (float) (-1));
-						} else {
-							((World) world).playSound(x, y, z,
-									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.place")),
-									SoundCategory.MASTER, (float) 1, (float) (-1), false);
-						}
-						if (world instanceof World && !world.isRemote()) {
-							((World) world).playSound(null, new BlockPos(x, y, z),
-									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.place")),
-									SoundCategory.MASTER, (float) 1, (float) (-1));
-						} else {
-							((World) world).playSound(x, y, z,
-									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.place")),
-									SoundCategory.MASTER, (float) 1, (float) (-1), false);
-						}
-					} else {
-						if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-								((entity instanceof LivingEntity)
-										? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-										: ItemStack.EMPTY)) != 0)
-								&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-										((entity instanceof LivingEntity)
-												? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-												: ItemStack.EMPTY)) == 1) {
-							entity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 0);
-							if (world instanceof World && !world.isRemote()) {
-								((World) world)
-										.playSound(null, new BlockPos(x, y, z),
-												(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-														.getValue(new ResourceLocation("block.anvil.place")),
-												SoundCategory.MASTER, (float) 1, (float) (-1));
-							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("block.anvil.place")),
-										SoundCategory.MASTER, (float) 1, (float) (-1), false);
-							}
-							if (world instanceof World && !world.isRemote()) {
-								((World) world)
-										.playSound(null, new BlockPos(x, y, z),
-												(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-														.getValue(new ResourceLocation("block.anvil.place")),
-												SoundCategory.MASTER, (float) 1, (float) (-1));
-							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("block.anvil.place")),
-										SoundCategory.MASTER, (float) 1, (float) (-1), false);
-							}
-						} else if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-								((entity instanceof LivingEntity)
-										? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-										: ItemStack.EMPTY)) != 0)
-								&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-										((entity instanceof LivingEntity)
-												? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-												: ItemStack.EMPTY)) == 2) {
-							sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 2);
-							if (world instanceof World && !world.isRemote()) {
-								((World) world)
-										.playSound(null, new BlockPos(x, y, z),
-												(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-														.getValue(new ResourceLocation("block.anvil.place")),
-												SoundCategory.MASTER, (float) 1, (float) (-1));
-							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("block.anvil.place")),
-										SoundCategory.MASTER, (float) 1, (float) (-1), false);
-							}
-							if (world instanceof World && !world.isRemote()) {
-								((World) world)
-										.playSound(null, new BlockPos(x, y, z),
-												(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-														.getValue(new ResourceLocation("block.anvil.place")),
-												SoundCategory.MASTER, (float) 1, (float) (-1));
-							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("block.anvil.place")),
-										SoundCategory.MASTER, (float) 1, (float) (-1), false);
-							}
-						} else if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-								((entity instanceof LivingEntity)
-										? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-										: ItemStack.EMPTY)) != 0)
-								&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-										((entity instanceof LivingEntity)
-												? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-												: ItemStack.EMPTY)) == 3) {
-							sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 4);
+					if (EnchantmentHelper.getEnchantmentLevel(GambleEnchantmentEnchantment.enchantment,
+							((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)) == 3) {
+						if (Math.random() <= 0.4) {
+							sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 6);
 							if (world instanceof World && !world.isRemote()) {
 								((World) world)
 										.playSound(null, new BlockPos(x, y, z),
@@ -405,242 +494,157 @@ public class GambleSwordEnchantmentProcedure {
 										SoundCategory.MASTER, (float) 1, (float) (-1), false);
 							}
 						} else {
-							entity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 4);
-							if (world instanceof World && !world.isRemote()) {
-								((World) world).playSound(null, new BlockPos(x, y, z),
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("entity.arrow.hit_player")),
-										SoundCategory.MASTER, (float) 1, (float) 1);
+							if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+									((entity instanceof LivingEntity)
+											? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+											: ItemStack.EMPTY)) != 0)
+									&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+											((entity instanceof LivingEntity)
+													? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+													: ItemStack.EMPTY)) == 1) {
+								entity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 0);
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
+							} else if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+									((entity instanceof LivingEntity)
+											? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+											: ItemStack.EMPTY)) != 0)
+									&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+											((entity instanceof LivingEntity)
+													? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+													: ItemStack.EMPTY)) == 2) {
+								sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 2);
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
+							} else if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+									((entity instanceof LivingEntity)
+											? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+											: ItemStack.EMPTY)) != 0)
+									&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
+											((entity instanceof LivingEntity)
+													? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
+													: ItemStack.EMPTY)) == 3) {
+								sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 4);
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1));
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("block.anvil.place")),
+											SoundCategory.MASTER, (float) 1, (float) (-1), false);
+								}
 							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("entity.arrow.hit_player")),
-										SoundCategory.MASTER, (float) 1, (float) 1, false);
-							}
-							if (world instanceof World && !world.isRemote()) {
-								((World) world).playSound(null, new BlockPos(x, y, z),
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("entity.arrow.hit_player")),
-										SoundCategory.MASTER, (float) 1, (float) 1);
-							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("entity.arrow.hit_player")),
-										SoundCategory.MASTER, (float) 1, (float) 1, false);
+								entity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 6);
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("entity.arrow.hit_player")),
+											SoundCategory.MASTER, (float) 1, (float) 1);
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("entity.arrow.hit_player")),
+											SoundCategory.MASTER, (float) 1, (float) 1, false);
+								}
+								if (world instanceof World && !world.isRemote()) {
+									((World) world).playSound(null, new BlockPos(x, y, z),
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("entity.arrow.hit_player")),
+											SoundCategory.MASTER, (float) 1, (float) 1);
+								} else {
+									((World) world).playSound(x, y, z,
+											(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+													.getValue(new ResourceLocation("entity.arrow.hit_player")),
+											SoundCategory.MASTER, (float) 1, (float) 1, false);
+								}
 							}
 						}
+						new Object() {
+							private int ticks = 0;
+							private float waitTicks;
+							private IWorld world;
+
+							public void start(IWorld world, int waitTicks) {
+								this.waitTicks = waitTicks;
+								MinecraftForge.EVENT_BUS.register(this);
+								this.world = world;
+							}
+
+							@SubscribeEvent
+							public void tick(TickEvent.ServerTickEvent event) {
+								if (event.phase == TickEvent.Phase.END) {
+									this.ticks += 1;
+									if (this.ticks >= this.waitTicks)
+										run();
+								}
+							}
+
+							private void run() {
+								{
+									boolean _setval = (false);
+									sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+										capability.GambleDebounce = _setval;
+										capability.syncPlayerVariables(sourceentity);
+									});
+								}
+								MinecraftForge.EVENT_BUS.unregister(this);
+							}
+						}.start(world, (int) 9);
 					}
-					new Object() {
-						private int ticks = 0;
-						private float waitTicks;
-						private IWorld world;
-
-						public void start(IWorld world, int waitTicks) {
-							this.waitTicks = waitTicks;
-							MinecraftForge.EVENT_BUS.register(this);
-							this.world = world;
-						}
-
-						@SubscribeEvent
-						public void tick(TickEvent.ServerTickEvent event) {
-							if (event.phase == TickEvent.Phase.END) {
-								this.ticks += 1;
-								if (this.ticks >= this.waitTicks)
-									run();
-							}
-						}
-
-						private void run() {
-							{
-								boolean _setval = (false);
-								sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-									capability.GambleDebounce = _setval;
-									capability.syncPlayerVariables(sourceentity);
-								});
-							}
-							MinecraftForge.EVENT_BUS.unregister(this);
-						}
-					}.start(world, (int) 9);
-				}
-				if (EnchantmentHelper.getEnchantmentLevel(GambleEnchantmentEnchantment.enchantment,
-						((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)) == 3) {
-					if (Math.random() <= 0.4) {
-						sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 6);
-						if (world instanceof World && !world.isRemote()) {
-							((World) world).playSound(null, new BlockPos(x, y, z),
-									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.place")),
-									SoundCategory.MASTER, (float) 1, (float) (-1));
-						} else {
-							((World) world).playSound(x, y, z,
-									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.place")),
-									SoundCategory.MASTER, (float) 1, (float) (-1), false);
-						}
-						if (world instanceof World && !world.isRemote()) {
-							((World) world).playSound(null, new BlockPos(x, y, z),
-									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.place")),
-									SoundCategory.MASTER, (float) 1, (float) (-1));
-						} else {
-							((World) world).playSound(x, y, z,
-									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.place")),
-									SoundCategory.MASTER, (float) 1, (float) (-1), false);
-						}
-					} else {
-						if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-								((entity instanceof LivingEntity)
-										? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-										: ItemStack.EMPTY)) != 0)
-								&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-										((entity instanceof LivingEntity)
-												? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-												: ItemStack.EMPTY)) == 1) {
-							entity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 0);
-							if (world instanceof World && !world.isRemote()) {
-								((World) world)
-										.playSound(null, new BlockPos(x, y, z),
-												(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-														.getValue(new ResourceLocation("block.anvil.place")),
-												SoundCategory.MASTER, (float) 1, (float) (-1));
-							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("block.anvil.place")),
-										SoundCategory.MASTER, (float) 1, (float) (-1), false);
-							}
-							if (world instanceof World && !world.isRemote()) {
-								((World) world)
-										.playSound(null, new BlockPos(x, y, z),
-												(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-														.getValue(new ResourceLocation("block.anvil.place")),
-												SoundCategory.MASTER, (float) 1, (float) (-1));
-							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("block.anvil.place")),
-										SoundCategory.MASTER, (float) 1, (float) (-1), false);
-							}
-						} else if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-								((entity instanceof LivingEntity)
-										? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-										: ItemStack.EMPTY)) != 0)
-								&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-										((entity instanceof LivingEntity)
-												? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-												: ItemStack.EMPTY)) == 2) {
-							sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 2);
-							if (world instanceof World && !world.isRemote()) {
-								((World) world)
-										.playSound(null, new BlockPos(x, y, z),
-												(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-														.getValue(new ResourceLocation("block.anvil.place")),
-												SoundCategory.MASTER, (float) 1, (float) (-1));
-							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("block.anvil.place")),
-										SoundCategory.MASTER, (float) 1, (float) (-1), false);
-							}
-							if (world instanceof World && !world.isRemote()) {
-								((World) world)
-										.playSound(null, new BlockPos(x, y, z),
-												(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-														.getValue(new ResourceLocation("block.anvil.place")),
-												SoundCategory.MASTER, (float) 1, (float) (-1));
-							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("block.anvil.place")),
-										SoundCategory.MASTER, (float) 1, (float) (-1), false);
-							}
-						} else if ((EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-								((entity instanceof LivingEntity)
-										? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-										: ItemStack.EMPTY)) != 0)
-								&& EnchantmentHelper.getEnchantmentLevel(MirrorEnchantmentEnchantment.enchantment,
-										((entity instanceof LivingEntity)
-												? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
-												: ItemStack.EMPTY)) == 3) {
-							sourceentity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 4);
-							if (world instanceof World && !world.isRemote()) {
-								((World) world)
-										.playSound(null, new BlockPos(x, y, z),
-												(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-														.getValue(new ResourceLocation("block.anvil.place")),
-												SoundCategory.MASTER, (float) 1, (float) (-1));
-							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("block.anvil.place")),
-										SoundCategory.MASTER, (float) 1, (float) (-1), false);
-							}
-							if (world instanceof World && !world.isRemote()) {
-								((World) world)
-										.playSound(null, new BlockPos(x, y, z),
-												(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-														.getValue(new ResourceLocation("block.anvil.place")),
-												SoundCategory.MASTER, (float) 1, (float) (-1));
-							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("block.anvil.place")),
-										SoundCategory.MASTER, (float) 1, (float) (-1), false);
-							}
-						} else {
-							entity.attackEntityFrom(DamageSource.OUT_OF_WORLD, (float) 6);
-							if (world instanceof World && !world.isRemote()) {
-								((World) world).playSound(null, new BlockPos(x, y, z),
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("entity.arrow.hit_player")),
-										SoundCategory.MASTER, (float) 1, (float) 1);
-							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("entity.arrow.hit_player")),
-										SoundCategory.MASTER, (float) 1, (float) 1, false);
-							}
-							if (world instanceof World && !world.isRemote()) {
-								((World) world).playSound(null, new BlockPos(x, y, z),
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("entity.arrow.hit_player")),
-										SoundCategory.MASTER, (float) 1, (float) 1);
-							} else {
-								((World) world).playSound(x, y, z,
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("entity.arrow.hit_player")),
-										SoundCategory.MASTER, (float) 1, (float) 1, false);
-							}
-						}
-					}
-					new Object() {
-						private int ticks = 0;
-						private float waitTicks;
-						private IWorld world;
-
-						public void start(IWorld world, int waitTicks) {
-							this.waitTicks = waitTicks;
-							MinecraftForge.EVENT_BUS.register(this);
-							this.world = world;
-						}
-
-						@SubscribeEvent
-						public void tick(TickEvent.ServerTickEvent event) {
-							if (event.phase == TickEvent.Phase.END) {
-								this.ticks += 1;
-								if (this.ticks >= this.waitTicks)
-									run();
-							}
-						}
-
-						private void run() {
-							{
-								boolean _setval = (false);
-								sourceentity.getCapability(KlbsNewPitModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-									capability.GambleDebounce = _setval;
-									capability.syncPlayerVariables(sourceentity);
-								});
-							}
-							MinecraftForge.EVENT_BUS.unregister(this);
-						}
-					}.start(world, (int) 9);
 				}
 			}
 		}

@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "klbs_new_pit:pit_vile"
+    },
+    "1": {
+      "item": "klbs_new_pit:pit_vile"
+    },
+    "2": {
+      "item": "klbs_new_pit:pit_vile"
+    },
+    "3": {
+      "item": "klbs_new_pit:pit_vile"
+    },
+    "4": {
+      "item": "klbs_new_pit:pit_vile"
+    },
+    "5": {
+      "item": "klbs_new_pit:pit_vile"
+    },
+    "6": {
+      "item": "klbs_new_pit:pit_vile"
+    },
+    "7": {
+      "item": "klbs_new_pit:pit_vile"
+    },
+    "8": {
+      "item": "klbs_new_pit:pit_vile"
+    }
+  },
+  "result": {
+    "item": "klbs_new_pit:pit_enchanted_vile",
+    "count": 1
+  }
+}

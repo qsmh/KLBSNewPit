@@ -86,7 +86,7 @@ public class PhoenixPantEnchantmentProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-		if (entity instanceof ServerPlayerEntity == entity instanceof PlayerEntity) {
+		if (entity instanceof ServerPlayerEntity || entity instanceof PlayerEntity) {
 			if ((EnchantmentHelper.getEnchantmentLevel(PhoenixEnchantmentEnchantment.enchantment,
 					((entity instanceof LivingEntity)
 							? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS)
@@ -125,7 +125,7 @@ public class PhoenixPantEnchantmentProcedure {
 									SoundCategory.MASTER, (float) 2, (float) (-6), false);
 						}
 						if (world instanceof ServerWorld) {
-							((ServerWorld) world).spawnParticle(ParticleTypes.FLAME, x, y, z, (int) 55, 0.5, 0.5, 0.5, 0.1);
+							((ServerWorld) world).spawnParticle(ParticleTypes.LAVA, x, y, z, (int) 55, 0.5, 0.5, 0.5, 0.1);
 						}
 						if (world instanceof ServerWorld) {
 							((ServerWorld) world).spawnParticle(ParticleTypes.LARGE_SMOKE, x, y, z, (int) 40, 0.5, 0.5, 0.5, 0.1);
@@ -150,7 +150,7 @@ public class PhoenixPantEnchantmentProcedure {
 									SoundCategory.MASTER, (float) 2, (float) (-6), false);
 						}
 						if (world instanceof ServerWorld) {
-							((ServerWorld) world).spawnParticle(ParticleTypes.FLAME, x, y, z, (int) 55, 0.5, 0.5, 0.5, 0.1);
+							((ServerWorld) world).spawnParticle(ParticleTypes.LAVA, x, y, z, (int) 55, 0.5, 0.5, 0.5, 0.1);
 						}
 						if (world instanceof ServerWorld) {
 							((ServerWorld) world).spawnParticle(ParticleTypes.LARGE_SMOKE, x, y, z, (int) 40, 0.5, 0.5, 0.5, 0.1);
@@ -177,7 +177,7 @@ public class PhoenixPantEnchantmentProcedure {
 									SoundCategory.MASTER, (float) 2, (float) (-6), false);
 						}
 						if (world instanceof ServerWorld) {
-							((ServerWorld) world).spawnParticle(ParticleTypes.FLAME, x, y, z, (int) 55, 0.5, 0.5, 0.5, 0.1);
+							((ServerWorld) world).spawnParticle(ParticleTypes.LAVA, x, y, z, (int) 55, 0.5, 0.5, 0.5, 0.1);
 						}
 						if (world instanceof ServerWorld) {
 							((ServerWorld) world).spawnParticle(ParticleTypes.LARGE_SMOKE, x, y, z, (int) 40, 0.5, 0.5, 0.5, 0.1);

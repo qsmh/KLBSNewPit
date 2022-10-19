@@ -64,7 +64,7 @@ public class DarkPantArmorItem extends KlbsNewPitModElements.ModElement {
 
 			@Override
 			public Ingredient getRepairMaterial() {
-				return Ingredient.fromStacks(new ItemStack(PitVileItem.block));
+				return Ingredient.fromStacks(new ItemStack(PitEnchantedVileItem.block));
 			}
 
 			@OnlyIn(Dist.CLIENT)
@@ -87,7 +87,7 @@ public class DarkPantArmorItem extends KlbsNewPitModElements.ModElement {
 			@Override
 			public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
 				super.addInformation(itemstack, world, list, flag);
-				list.add(new StringTextComponent("\u00A75Immune to mystics"));
+				list.add(new StringTextComponent("\u00A75Immune To Mystics"));
 			}
 
 			@Override

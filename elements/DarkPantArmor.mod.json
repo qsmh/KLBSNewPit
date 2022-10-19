@@ -21,7 +21,7 @@
     "helmetSpecialInfo": [],
     "bodySpecialInfo": [],
     "leggingsSpecialInfo": [
-      "§5Immune to mystics"
+      "§5Immune To Mystics"
     ],
     "bootsSpecialInfo": [],
     "helmetModelName": "Default",
@@ -57,7 +57,7 @@
     },
     "repairItems": [
       {
-        "value": "CUSTOM:PitVile"
+        "value": "CUSTOM:PitEnchantedVile"
       }
     ]
   }

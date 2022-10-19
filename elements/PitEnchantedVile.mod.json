@@ -5,7 +5,7 @@
     "renderType": 0,
     "texture": "coal_je2_be1",
     "customModelName": "Normal",
-    "name": "§5Chunk Of Vile",
+    "name": "§5Compiled Chunk Of Vile",
     "rarity": "EPIC",
     "creativeTab": {
       "value": "MISC"
@@ -27,7 +27,7 @@
     "specialInfo": [
       "§cHeretic Artifact"
     ],
-    "hasGlow": false,
+    "hasGlow": true,
     "guiBoundTo": "<NONE>",
     "inventorySize": 9,
     "inventoryStackSize": 64,

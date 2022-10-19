@@ -467,6 +467,79 @@
       "locked_code": false,
       "registry_name": "is_mystic_tag_pit",
       "path": "~/NBTTags"
+    },
+    {
+      "name": "PitEnchantedVile",
+      "type": "item",
+      "sortid": 31,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pit_enchanted_vile",
+      "path": "~/Vile"
+    },
+    {
+      "name": "PitEnchantedVileRecipe",
+      "type": "recipe",
+      "sortid": 32,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pit_enchanted_vile_recipe",
+      "path": "~/Vile"
+    },
+    {
+      "name": "DarkPantArmorRecipe",
+      "type": "recipe",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dark_pant_armor_recipe",
+      "path": "~/Vile"
+    },
+    {
+      "name": "DarkPantsCraftedAdvancementPit",
+      "type": "achievement",
+      "sortid": 34,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dark_pants_crafted_advancement_pit",
+      "path": "~/CustomAdvancements"
+    },
+    {
+      "name": "DarkPantArmorOnCrafted",
+      "type": "procedure",
+      "sortid": 35,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dark_pant_armor_on_crafted",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Vile"
     }
   ],
   "variable_elements": [
@@ -520,12 +593,15 @@
       "enchantment.klbs_new_pit.mirror_enchantment": "Mirror",
       "key.klbs_new_pit.toggle_main_gui_pit": "Main Pit Gui",
       "item.klbs_new_pit.dark_pant_armor_leggings": "§5Dark Pants",
+      "item.klbs_new_pit.pit_enchanted_vile": "§5Compiled Chunk Of Vile",
       "enchantment.klbs_new_pit.vampire_enchantment": "Vampire",
       "item.klbs_new_pit.dark_pant_armor_chestplate": "Dark Pant Armor Body",
       "enchantment.klbs_new_pit.evil_within_enchantment": "§5Evil Within",
       "enchantment.klbs_new_pit.peroxide_enchantment": "Peroxide",
+      "advancements.dark_pants_crafted_advancement_pit.descr": "Craft Dark Pants using compiled vile.",
       "item.klbs_new_pit.pit_vile": "§5Chunk Of Vile",
-      "item.klbs_new_pit.peruns_wrath_sword_pit": "§ePerun\u0027s Wrath"
+      "item.klbs_new_pit.peruns_wrath_sword_pit": "§ePerun\u0027s Wrath",
+      "advancements.dark_pants_crafted_advancement_pit.title": "Evil Crafted"
     }
   },
   "foldersRoot": {
@@ -565,6 +641,10 @@
       },
       {
         "name": "NBTTags",
+        "children": []
+      },
+      {
+        "name": "CustomAdvancements",
         "children": []
       }
     ]

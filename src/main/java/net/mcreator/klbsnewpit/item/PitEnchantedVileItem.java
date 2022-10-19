@@ -2,6 +2,8 @@
 package net.mcreator.klbsnewpit.item;
 
 import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.World;
 import net.minecraft.util.text.StringTextComponent;
@@ -18,12 +20,12 @@ import net.mcreator.klbsnewpit.KlbsNewPitModElements;
 import java.util.List;
 
 @KlbsNewPitModElements.ModElement.Tag
-public class PitVileItem extends KlbsNewPitModElements.ModElement {
-	@ObjectHolder("klbs_new_pit:pit_vile")
+public class PitEnchantedVileItem extends KlbsNewPitModElements.ModElement {
+	@ObjectHolder("klbs_new_pit:pit_enchanted_vile")
 	public static final Item block = null;
 
-	public PitVileItem(KlbsNewPitModElements instance) {
-		super(instance, 15);
+	public PitEnchantedVileItem(KlbsNewPitModElements instance) {
+		super(instance, 31);
 	}
 
 	@Override
@@ -34,7 +36,7 @@ public class PitVileItem extends KlbsNewPitModElements.ModElement {
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).isImmuneToFire().rarity(Rarity.EPIC));
-			setRegistryName("pit_vile");
+			setRegistryName("pit_enchanted_vile");
 		}
 
 		@Override
@@ -45,6 +47,12 @@ public class PitVileItem extends KlbsNewPitModElements.ModElement {
 		@Override
 		public float getDestroySpeed(ItemStack par1ItemStack, BlockState par2Block) {
 			return 1F;
+		}
+
+		@Override
+		@OnlyIn(Dist.CLIENT)
+		public boolean hasEffect(ItemStack itemstack) {
+			return true;
 		}
 
 		@Override

@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "6 8"
+  ],
+  "key": {
+    "0": {
+      "item": "klbs_new_pit:pit_enchanted_vile"
+    },
+    "1": {
+      "item": "klbs_new_pit:pit_enchanted_vile"
+    },
+    "2": {
+      "item": "klbs_new_pit:pit_enchanted_vile"
+    },
+    "3": {
+      "item": "klbs_new_pit:pit_enchanted_vile"
+    },
+    "5": {
+      "item": "klbs_new_pit:pit_enchanted_vile"
+    },
+    "6": {
+      "item": "klbs_new_pit:pit_enchanted_vile"
+    },
+    "8": {
+      "item": "klbs_new_pit:pit_enchanted_vile"
+    }
+  },
+  "result": {
+    "item": "klbs_new_pit:dark_pant_armor_leggings",
+    "count": 1
+  }
+}
